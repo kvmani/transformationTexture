@@ -1,0 +1,48 @@
+function processPFset_json(fNames, hList, CS, SS, odfFile, nSections, ...
+                           doPlots, nGrid)
+% PROCESSPFSET_JSON – load PFs, compute/export/reload ODF, plot & compare.
+
+    %% 1. Load pole figures ---------------------------------------------------
+    pf  = PoleFigure.load(fNames, hList, CS, SS, 'interface','xrdml');
+
+    %% 2. ODF export & reload -------------------------------------------------
+    odfPath = fullfile(fileparts(fNames{1}), odfFile);
+    odf     = calcODF(pf);
+    export(odf, odfPath, 'Bunge');
+    odfReload = ODF.load(odfPath, 'CS', CS, 'SS', SS, 'Bunge');   % tag form
+
+    %% 3. Visual comparison ---------------------------------------------------
+    if doPlots
+        figure('Color','w','Name','PF + ODF round-trip');
+
+        % use a uniquely-named handle to avoid masking problems
+        tl = tiledlayout(2, numel(hList)+nSections, ...
+                         'TileSpacing','compact','Padding','compact'); 
+
+        % --- raw pole figures
+        for i = 1:numel(hList)
+            nexttile(tl);                   % always pass the SAME handle
+            plot(pf(i));                    % slice first, then plot
+            title(sprintf('PF %d', i));
+        end
+
+        % --- original ODF sections
+        for s = 1:nSections
+            nexttile(tl);
+            plot(odf, 'sections', nSections, 'silent', 'parent', gca);
+            title(sprintf('orig \\phi_2 = %d°', round(phi2Sections(odf,s))));
+        end
+
+        % --- reloaded ODF sections
+        for s = 1:nSections
+            nexttile(tl);
+            plot(odfReload, 'sections', nSections, 'silent', 'parent', gca);
+            title(sprintf('reload \\phi_2 = %d°', round(phi2Sections(odfReload,s))));
+        end
+    end
+
+    %% 4. Numeric error check --------------------------------------------------
+    oriRnd = orientation.rand(CS, nGrid);
+    maxErr = max(abs(odf.eval(oriRnd) - odfReload.eval(oriRnd)));
+    fprintf('   max |Δf| = %.3g\n', maxErr);
+end

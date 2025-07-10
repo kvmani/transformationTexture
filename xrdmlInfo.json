@@ -1,0 +1,125 @@
+[
+    { "folder": "Data_Ti6242\\Deformed Ti6242-HC 900C-1s-1\\HT XRT\\1000C\\alpha",
+        "files": [
+        { "file": "PF-1 alpha _1000.2°C_1000C.xrdml", "hkl": [1, 0, 0], "twoTheta": 34.74 },
+        { "file": "PF-2 alpha _1000.2°C_1000C.xrdml", "hkl": [1, 0, 2], "twoTheta": 39.6 },
+        { "file": "PF-3 alpha _1000.2°C_1000C.xrdml", "hkl": [1, 0, 2], "twoTheta": 52.08 },
+        { "file": "PF-4 alpha _1000.2°C_1000C.xrdml", "hkl": [1, 0, 3], "twoTheta": 69.36 }
+        ]
+    },
+    { "folder": "Data_Ti6242\\Deformed Ti6242-HC 900C-1s-1\\HT XRT\\1000C\\beta",
+        "files": [
+        { "file": "PF-1 beta _1000.2°C_1000C.xrdml", "hkl": [1, 1, 0], "twoTheta": 38.43 },
+        { "file": "PF-2 beta _1000.2°C_1000C.xrdml", "hkl": [2, 0, 0], "twoTheta": 53.55 },
+        { "file": "PF-3 beta_1000.2°C_1000C.xrdml", "hkl": [2, 1, 1], "twoTheta": 68.47 }
+        ]
+    },
+    { "folder": "Data_Ti6242\\Deformed Ti6242-HC 900C-1s-1\\HT XRT\\900C",
+        "files": [
+        { "file": "PF-1 alpha _900.2°C_900C.xrdml", "hkl": [1, 0, 0], "twoTheta": 34.8 },
+        { "file": "PF-2 alpha _900.2°C_900C.xrdml", "hkl": [1, 0, 2], "twoTheta": 39.73 },
+        { "file": "PF-3 alpha _900.2°C_900C.xrdml", "hkl": [1, 0, 2], "twoTheta": 52.28 },
+        { "file": "PF-4 alpha _900.2°C_900C.xrdml", "hkl": [1, 0, 3], "twoTheta": 69.54 }
+        ]
+    },
+    { "folder": "Data_Ti6242\\Deformed Ti6242-HC 900C-1s-1\\HT XRT\\CT 50",
+        "files": [
+        { "file": "PF-1 alpha _50.3°C_CT50C.xrdml", "hkl": [1, 0, 0], "twoTheta": 35.17 },
+        { "file": "PF-2 alpha _50.3°C_CT50C.xrdml", "hkl": [1, 0, 2], "twoTheta": 39.87 },
+        { "file": "PF-3 alpha _50.3°C_CT50C.xrdml", "hkl": [1, 0, 2], "twoTheta": 52.62 },
+        { "file": "PF-4 alpha _50.3°C_CT50C.xrdml", "hkl": [1, 0, 3], "twoTheta": 69.66 }
+        ]
+    },
+    { "folder": "Data_Ti6242\\Deformed Ti6242-HC 900C-1s-1\\HT XRT\\RT 50",
+        "files": [
+        { "file": "PF-1 alpha _50.2°C_RT.xrdml", "hkl": [1, 0, 0], "twoTheta": 35.25 },
+        { "file": "PF-2 alpha _50.2°C_RT.xrdml", "hkl": [1, 0, 2], "twoTheta": 40.29 },
+        { "file": "PF-3 alpha _50.2°C_RT.xrdml", "hkl": [1, 0, 2], "twoTheta": 53.109 },
+        { "file": "PF-4 alpha _50.2°C_RT.xrdml", "hkl": [1, 0, 3], "twoTheta": 70.61 }
+        ]
+    },
+    { "folder": "Data_Ti6242\\Undeformed Ti6242\\HT XRT\\1000C\\alpha",
+        "files": [
+        { "file": "PF-1_100_1000_1000.1°C_alpha.xrdml", "hkl": [1, 0, 0], "twoTheta": 34.97 },
+        { "file": "PF-2_101_1000_1000.1°C_alpha.xrdml", "hkl": [1, 0, 1], "twoTheta": 39.83 },
+        { "file": "PF-3_102_1000_1000.1°C_alpha.xrdml", "hkl": [1, 0, 2], "twoTheta": 52.18 },
+        { "file": "PF-4_103_1000_1000.1°C_alpha.xrdml", "hkl": [1, 0, 3], "twoTheta": 69.23 }
+        ]
+    },
+    { "folder": "Data_Ti6242\\Undeformed Ti6242\\HT XRT\\1000C\\beta",
+        "files": [
+        { "file": "PF-1_110_beta_1000_1000.0°C_beta.xrdml", "hkl": [1, 1, 0], "twoTheta": 38.43 },
+        { "file": "PF-2_200_beta_1000_1000.0°C_beta.xrdml", "hkl": [2, 0, 0], "twoTheta": 54.14 },
+        { "file": "PF-3_211_beta_1000_1000.0°C_beta.xrdml", "hkl": [2, 1, 1], "twoTheta": 68.9 }
+        ]
+    },
+    { "folder": "Data_Ti6242\\Undeformed Ti6242\\HT XRT\\900C",
+        "files": [
+        { "file": "PF-1 alpha _900.1°C_900C.xrdml", "hkl": [1, 0, 0], "twoTheta": 34.88 },
+        { "file": "PF-2 alpha _900.1°C_900C.xrdml", "hkl": [1, 0, 2], "twoTheta": 39.7 },
+        { "file": "PF-3 alpha _900.1°C_900C.xrdml", "hkl": [1, 0, 2], "twoTheta": 52.18 },
+        { "file": "PF-4 alpha _900.1°C_900C.xrdml", "hkl": [1, 0, 3], "twoTheta": 69.59 }
+        ]
+    },
+    { "folder": "Data_Ti6242\\Undeformed Ti6242\\HT XRT\\CT 50",
+        "files": [
+        { "file": "PF-1_100_CT alpha_50.2°C.xrdml", "hkl": [1, 0, 0], "twoTheta": 35.14 },
+        { "file": "PF-2_101_CT alpha_50.2°C.xrdml", "hkl": [1, 0, 1], "twoTheta": 40.08 },
+        { "file": "PF-3_102_CT alpha_50.2°C.xrdml", "hkl": [1, 0, 2], "twoTheta": 52.46 },
+        { "file": "PF-4_103_CT alpha_50.2°C.xrdml", "hkl": [1, 0, 3], "twoTheta": 69.83 }
+        ]
+    },
+    { "folder": "Data_Ti6242\\Undeformed Ti6242\\HT XRT\\RT",
+        "files": [
+        { "file": "PF-1_100_RT_50.1°C_alpha.xrdml", "hkl": [1, 0, 0], "twoTheta": 35.34 },
+        { "file": "PF-2_101_RT_50.1°C_alpha.xrdml", "hkl": [1, 0, 1], "twoTheta": 40.35 },
+        { "file": "PF-3_102_RT_50.1°C_alpha.xrdml", "hkl": [1, 0, 2], "twoTheta": 53.19 },
+        { "file": "PF-4_103_RT_.xrdml", "hkl": [1, 0, 3], "twoTheta": 70.81 }
+        ]
+    },
+    { "folder": "SP-700\\Deformed @ 850 deg C 1S-1\\HT XRT\\850 degC Texture\\Alpha",
+        "files": [
+        { "file": "PF-1 alpha _850.2°C_850.xrdml", "hkl": [1, 0, 0], "twoTheta": 35 },
+        { "file": "PF-2 alpha _850.2°C_850.xrdml", "hkl": [0, 0, 2], "twoTheta": 36 },
+        { "file": "PF-3 alpha _850.1°C_850.xrdml", "hkl": [1, 0, 1], "twoTheta": 41.13 },
+        { "file": "PF-5 alpha _850.1°C_850.xrdml", "hkl": [1, 0, 2], "twoTheta": 52.34 }
+        ]
+    },
+    { "folder": "SP-700\\Deformed @ 850 deg C 1S-1\\HT XRT\\850 degC Texture\\Beta",
+        "files": [
+        { "file": "PF-1 beta _850.1°C_850.xrdml", "hkl": [1, 1, 0], "twoTheta": 39.97 },
+        { "file": "PF-2 beta _850.1°C_850.xrdml", "hkl": [2, 0, 0], "twoTheta": 54.18 },
+        { "file": "PF-3 beta_850.1°C_850.xrdml", "hkl": [2, 1, 1], "twoTheta": 68.85 }
+        ]
+    },
+    { "folder": "SP-700\\Deformed @ 850 deg C 1S-1\\HT XRT\\CT texture\\Alpha",
+        "files": [
+        { "file": "PF-1 alpha _30.8°C_CT.xrdml", "hkl": [1, 0, 0], "twoTheta": 34.14 },
+        { "file": "PF-2 alpha _30.8°C_CT.xrdml", "hkl": [0, 0, 2], "twoTheta": 36.26 },
+        { "file": "PF-3 alpha _30.8°C_CT.xrdml", "hkl": [1, 0, 1], "twoTheta": 41.35 },
+        { "file": "PF-4 alpha _30.8°C_CT.xrdml", "hkl": [1, 0, 2], "twoTheta": 52.65 }
+        ]
+    },
+    { "folder": "SP-700\\Deformed @ 850 deg C 1S-1\\HT XRT\\CT texture\\Beta",
+        "files": [
+        { "file": "PF-1 beta_30.8°C_CT.xrdml", "hkl": [1, 1, 0], "twoTheta": 37.69 },
+        { "file": "PF-2 beta_30.8°C_CT.xrdml", "hkl": [2, 0, 0], "twoTheta": 54.59 },
+        { "file": "PF-3 beta_30.8°C_CT.xrdml", "hkl": [2, 1, 1], "twoTheta": 68.23 }
+        ]
+    },
+    { "folder": "SP-700\\Deformed @ 850 deg C 1S-1\\HT XRT\\RT (30 deg C) Texture\\Alpha",
+        "files": [
+        { "file": "PF-1 alpha _RT_25.1°C.xrdml", "hkl": [1, 0, 0], "twoTheta": 35.58 },
+        { "file": "PF-2 alpha _RT_25.1°C.xrdml", "hkl": [0, 0, 2], "twoTheta": 38.62 },
+        { "file": "PF-3 alpha _RT_25.1°C.xrdml", "hkl": [1, 0, 1], "twoTheta": 40.57 },
+        { "file": "PF-4 alpha _RT_25.4°C.xrdml", "hkl": [1, 0, 2], "twoTheta": 53.41 }
+        ]
+    },
+    { "folder": "SP-700\\Deformed @ 850 deg C 1S-1\\HT XRT\\RT (30 deg C) Texture\\Beta",
+        "files": [
+        { "file": "PF-1 beta_RT_25.4°C.xrdml", "hkl": [1, 1, 0], "twoTheta": 39.59 },
+        { "file": "PF-2 beta_RT_25.4°C.xrdml", "hkl": [2, 0, 0], "twoTheta": 57.1 },
+        { "file": "PF-3 beta_RT_25.4°C.xrdml", "hkl": [2, 1, 1], "twoTheta": 70.95 }
+        ]
+    }
+]

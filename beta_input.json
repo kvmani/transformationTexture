@@ -1,0 +1,34 @@
+{
+  "crystalSymmetry": {
+  "phase":   "beta-Ti",
+  "laue":    "m-3m",
+  "lattice": [3.32, 3.32, 3.32]
+},
+  "specimenSymmetry": "1",
+  "plotting": {
+    "intensityScale": [0, 12],       
+    "colormap": "parula",
+    "smoothPF": false                
+  },
+  "datasets": [
+    {
+      "root": "Z:/backUps/currentProjects/colloborations/shibayan_iitKgp/HT XRT/850 degC Texture/Beta",
+      "files": [
+        "PF-1 beta _850.1°C_850.xrdml",
+        "PF-2 beta _850.1°C_850.xrdml",
+        "PF-3 beta_850.1°C_850.xrdml"
+      ],
+      "millers": [
+        [1, 1, 0],
+        [2, 0, 0],
+        [2, 1, 1]
+      ],
+      "odfExport": "odf.txt",
+      "phi2Sections": 6
+    }
+
+    
+  ],
+
+  "plotting": { "showPlots": true, "compareGrid": 30000 }
+}

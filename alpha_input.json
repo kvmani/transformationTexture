@@ -1,0 +1,36 @@
+{
+  "crystalSymmetry": {
+    "phase":   "alpha-Ti",
+    "laue":    "6/mmm",
+    "lattice": [2.951, 2.951, 4.684]
+  },
+
+  "specimenSymmetry": "1",
+
+  "plotting": {
+    "intensityScale": [0, 12],
+    "colormap": "parula",
+    "smoothPF": false
+  },
+
+  "datasets": [
+    {
+      "root": "Z:/backUps/currentProjects/colloborations/shibayan_iitKgp/HT XRT/850 degC Texture/Alpha",
+      "files": [
+        "PF-1 alpha _850.2°C_850.xrdml",
+        "PF-2 alpha _850.2°C_850.xrdml",
+        "PF-3 alpha _850.1°C_850.xrdml",
+        "PF-5 alpha _850.1°C_850.xrdml"
+      ],
+      "millers": [
+        [0, 0, 0, 1],   
+        [1, 0, -1, 0],   
+        [1, 0, -1, 1]    
+      ],
+      "odfExport": "odf.txt",
+      "phi2Sections": 6
+    }
+  ],
+
+  "plottingExtra": { "showPlots": true, "compareGrid": 30000 }
+}
