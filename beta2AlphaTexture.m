@@ -1,6 +1,10 @@
 %==========================================================================
 % MATLAB Script for Batch β→α Texture Transformation
 %==========================================================================
+% Author: Dr K V Mani Krishna
+% Date  : 2025-05-01
+% This script reads beta texture data and generates corresponding alpha phase textures using Burgers orientation relationship.
+
 
 clear all
 close all
@@ -9,10 +13,17 @@ debug = true;
 consider_PreExistingAlpha = true;
 
 %==================== User-Defined Paths and Parameters ====================
-rootDir  = 'Z:\backUps\currentProjects\colloborations\shibayan_iitKgp\Mani Sir';
-jsonFile = fullfile(rootDir, 'xrdmlInfo_2.json');
-selList  = 0.1:0.3:1.0;
+if ~exist('rootDir','var')
+    rootDir = 'Z:\backUps\currentProjects\colloborations\shibayan_iitKgp\Mani Sir';
+end
+if ~exist('jsonFile','var')
+    jsonFile = fullfile(rootDir, 'xrdmlInfo_2.json');
+end
+if ~exist('selList','var')
+    selList = 0.1:0.3:1.0;
+end
 levels10 = linspace(0.5,2.0,10);
+if ~exist('manualJsonText','var')
 manualJsonText = [ ...
     '[', ...
     '  {', ...
@@ -39,6 +50,7 @@ manualJsonText = [ ...
     '  }', ...
     ']'
     ];
+end
 if ~isempty(strtrim(manualJsonText))
     fprintf('INFO: Using in-script manual JSON for testing.\n');
     folders = jsondecode(manualJsonText);

@@ -1,5 +1,8 @@
 function strOut = prettyJSON(strIn, indent)
 % prettyJSON – pretty-print & compact JSON
+% Author: Dr K V Mani Krishna
+% Date  : 2025-05-01
+% Format JSON text with indentation for readability.
 % • classic indenter  • inline [h,k,l] and {file:…,hkl:…,twoTheta:…}
 
 if nargin<2, indent = '    '; end

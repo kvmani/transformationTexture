@@ -1,6 +1,10 @@
 %==========================================================================
 % MATLAB Script for Batch α→β Texture Transformation (Reverse Burgers OR)
 %==========================================================================
+% Author: Dr K V Mani Krishna
+% Date  : 2025-05-01
+% This script converts alpha texture data back to beta phase using inverse Burgers orientation relationship.
+
 
 clear all
 close all
@@ -9,11 +13,18 @@ debug = true;
 consider_PreExistingBeta = true;
 
 %==================== User-Defined Paths and Parameters ====================
-rootDir  = 'Z:\backUps\currentProjects\colloborations\shibayan_iitKgp\Mani Sir';
-jsonFile = fullfile(rootDir, 'xrdmlInfo_2.json');
-selList  = 0.1:0.3:1.0;
+if ~exist('rootDir','var')
+    rootDir  = 'Z:\backUps\currentProjects\colloborations\shibayan_iitKgp\Mani Sir';
+end
+if ~exist('jsonFile','var')
+    jsonFile = fullfile(rootDir, 'xrdmlInfo_2.json');
+end
+if ~exist('selList','var')
+    selList  = 0.1:0.3:1.0;
+end
 levels10 = linspace(0.5,2.0,10);
 
+if ~exist('manualJsonText','var')
 manualJsonText = [ ...
     '{ "folder": "SP-700\\Deformed @ 850 deg C 1S-1\\HT XRT\\RT (30 deg C) Texture\\Alpha", ', ...
     '  "data_set_name": "SP700_RT_alpha", ', ...
@@ -29,6 +40,7 @@ manualJsonText = [ ...
     '}' ...
 ];
 
+end
 % ---------- Load folder metadata ----------
 if ~isempty(strtrim(manualJsonText))
     fprintf('INFO: Using in-script manual JSON for testing.\n');

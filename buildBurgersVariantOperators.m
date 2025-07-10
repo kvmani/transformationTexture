@@ -1,5 +1,8 @@
 function V = buildBurgersVariantOperators()
 % Returns a 1×12 array of orientation objects that map a β grain to each
+% Author: Dr K V Mani Krishna
+% Date  : 2025-05-01
+% Build 12 Burgers variant operators for beta to alpha transformation.
 % α variant according to the predfined Euler angles from my python code.
 
 % ---- crystal symmetries -------------------------------------------------

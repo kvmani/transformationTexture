@@ -1,5 +1,7 @@
 function V = buildBetaVariantsFromAlpha()
 % buildBetaVariantsFromAlpha - Constructs 6 orientation variants mapping
+% Author: Dr K V Mani Krishna
+% Date  : 2025-05-01
 % an α-phase grain to its possible β-phase variants using predefined Euler angles.
 %
 % This function implements the reverse of the Burgers Orientation Relationship,
