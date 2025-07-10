@@ -24,7 +24,7 @@ It incorporates:
 ## 💻 Technical Requirements
 
 - **MATLAB Version**: `9.8.0.1323502 (R2020a)`
-- **MTEX Version**: `6.0.0`
+- **MTEX Version**: `5.4.0`
 
 
 ⚠️ *All code must be compatible with the above environment. No features from newer MATLAB or MTEX versions may be used unless explicitly backported.*

@@ -100,8 +100,7 @@ For α→β transformations, replace `alpha` with `beta` in the metadata keys ac
 
 **Environment Requirements:**
 - MATLAB **R2020a**
-- MTEX Toolbox **v6.0.0**
-- Operating System: **Windows 10 Pro (Build 19041)**
+- MTEX Toolbox **v5.4.0**
 - Java 1.8.0_202 (HotSpot 64-bit)
 
 ### MTEX installation:
