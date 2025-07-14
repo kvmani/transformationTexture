@@ -1,5 +1,6 @@
 %% test_plotPDF_unimodal.m  —  minimal MTEX sanity check
 % ------------------------------------------------------
+checkEnvironment();
 % 1.  Quick “is MTEX on the path?” test
 try
     mtexRoot = fileparts(which('quaternion'));

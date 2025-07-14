@@ -1,4 +1,70 @@
 % simulateUniModalBeta2AlphaTexture.m
+
+% Demonstrate the use of parentToProductTexture for a unimodal β→α transformation.
+% This script builds ideal unimodal β and α textures, saves them to tmp/
+% as simulatedBeta.odf and simulatedAlpha.odf, then performs the forward
+% transformation for different selection (sel) values. All generated pole
+% figures are saved in results/simulatedTextures/.
+
+clear; clc; close all;
+
+checkEnvironment();
+
+fprintf('\n=== Simulate β→α Transformation on Unimodal Data ===\n');
+
+%% setup directories
+rootDir = pwd;
+tmpDir  = fullfile(rootDir,'tmp');
+outDir  = fullfile(rootDir,'results','simulatedTextures');
+if ~exist(tmpDir,'dir'), mkdir(tmpDir); end
+if ~exist(outDir,'dir'), mkdir(outDir); end
+
+%% crystal and specimen symmetries
+csB = crystalSymmetry('m-3m',[3.32 3.32 3.32],'mineral','β-Ti');
+csA = crystalSymmetry('6/mmm',[2.951 2.951 4.684],'mineral','α-Ti');
+ss  = specimenSymmetry('1');
+
+%% create unimodal parent and pre-existing product textures
+betaFile  = fullfile(tmpDir,'simulatedBeta.odf');
+alphaFile = fullfile(tmpDir,'simulatedAlpha.odf');
+
+g0B = orientation('Euler',0*degree,0*degree,0*degree,csB,ss);
+odfB = unimodalODF(g0B,15*degree);
+export(odfB,betaFile,'Bunge');
+fprintf('Saved parent β ODF to %s\n',betaFile);
+
+g0A = orientation('Euler',0*degree,0*degree,0*degree,csA,ss);
+odfApre = unimodalODF(g0A,15*degree);
+export(odfApre,alphaFile,'Bunge');
+fprintf('Saved pre-existing α ODF to %s\n',alphaFile);
+
+%% plot initial β (110) pole figure
+fig = figure('Visible','off');
+plotPDF(odfB,Miller(1,1,0,csB),'contourf','resolution',5*degree,'antipodal');
+mtexColorbar;
+print(fig,fullfile(outDir,'beta_110_pf.png'),'-dpng','-r300');
+close(fig);
+fprintf('Saved parent β (110) pole figure.\n');
+
+%% perform transformation for various sel values
+selList = 0.1:0.2:1.0;
+for sel = selList
+    fprintf('\n--- Running parentToProductTexture with sel = %.2f ---\n',sel);
+    [odfAlpha,~] = parentToProductTexture(betaFile,'beta','alpha', ...
+        'Sel',sel,'PreTransformed',true,'PreTextureFile',alphaFile, ...
+        'PreFraction',0.2,'OutputDir',outDir,'DataSetName','unimodal_demo');
+
+    fig = figure('Visible','off');
+    plotPDF(odfAlpha,Miller({0,0,0,1},csA),'contourf','resolution',5*degree,'antipodal');
+    mtexColorbar;
+    pfName = sprintf('alpha_0001_pf_sel_%0.2f.png',sel);
+    print(fig,fullfile(outDir,pfName),'-dpng','-r300');
+    close(fig);
+    fprintf('Saved product α (0001) pole figure: %s\n',pfName);
+end
+
+fprintf('\nAll β→α simulations complete. Results in %s\n',outDir);
+=======
 % Demonstrates use of parentToProductTexture for a simple \beta\rightarrow\alpha transformation.
 % It creates a unimodal parent \beta texture, mixes in a small fraction of
 % pre-existing \alpha texture and computes product textures for a range of
@@ -63,3 +129,4 @@ for sel = selList
 end
 
 fprintf('\nAll \u03b2\u2192\u03b1 simulations complete. Results in %s\n', outDir);
+
