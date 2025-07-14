@@ -9,6 +9,8 @@
 clear all
 close all
 
+checkEnvironment();
+
 debug = true;
 consider_PreExistingAlpha = true;
 
@@ -60,7 +62,7 @@ else
 end
 
 %======================= Start Batch Processing Loop ======================
-fprintf('\n=======  Batch \u03b2\u2192\u03b1 ODF conversion  =======\n');
+fprintf('\n=======  Batch β→α ODF conversion  =======\n');
 ticGlobal = tic;
 procCount = 0;
 

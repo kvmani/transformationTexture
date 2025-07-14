@@ -37,6 +37,8 @@ function [odfProduct, report] = parentToProductTexture(inputTextureFile, parentP
 %       'PreTextureFile','alpha/odf.txt','PreFraction',0.1,
 %       'OutputDir','results');
 
+checkEnvironment();
+
 % ---- parse inputs -------------------------------------------------------
 p = inputParser;
 addRequired(p,'inputTextureFile',@(x)ischar(x)||isstring(x));
