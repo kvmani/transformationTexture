@@ -58,6 +58,13 @@ Wrapper for α→β transformation in reverse:
 - Also delegates to `parentToProductTexture`
 - Follows similar output and folder structure
 
+### `simulateUniModalBeta2AlphaTexture.m` & `simulateUniModalAlpha2BetaTexture.m`
+
+Self-contained examples that build an ideal single-orientation texture and
+invoke `parentToProductTexture` for several `sel` values. They write all
+generated ODFs and pole figures to `results/simulatedTextures/` and are a
+handy way to confirm the toolkit is working without external data files.
+
 ---
 
 ## Supporting Functions
