@@ -1,6 +1,8 @@
 
 function addFigureAnnotation(figHandle, sel, alphaFrac, dataSetName)
 % addFigureAnnotation - Annotates a given figure with simulation parameters.
+% Author: Dr K V Mani Krishna
+% Date  : 2025-05-01
 %
 % Syntax:
 %   addFigureAnnotation(figHandle, sel, alphaFrac, dataSetName)
@@ -25,6 +27,8 @@ end
 
 function dataSetName = getCleanDataSetName(folderStruct, idx)
 % getCleanDataSetName - Retrieves and formats a dataset name.
+% Author: Dr K V Mani Krishna
+% Date  : 2025-05-01
 %
 % Syntax:
 %   dataSetName = getCleanDataSetName(folderStruct, idx)
@@ -46,6 +50,8 @@ end
 
 function plotAndSaveODF(odf, hA, outFilePath, sel, alphaFrac, dataSetName)
 % plotAndSaveODF - Plots the ODF, adds annotation, and saves to PNG.
+% Author: Dr K V Mani Krishna
+% Date  : 2025-05-01
 %
 % Syntax:
 %   plotAndSaveODF(odf, hA, outFilePath, sel, alphaFrac, dataSetName)

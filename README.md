@@ -38,17 +38,24 @@ Author: **Dr K V Mani Krishna**
 
 ## Scripts
 
+### `parentToProductTexture.m`
+
+Generic function that converts a parent phase texture into its product phase
+using the Burgers orientation relationship. It handles both α→β and β→α cases,
+optional pre-transformed fractions and writes a JSON report. The legacy batch
+scripts call this function internally.
+
 ### `beta2AlphaTexture.m`
 
-Performs batch β→α transformation:
-- Uses `beta2alphaVariants.m` for orientation computation
+Wrapper for batch β→α transformation:
+- Calls `parentToProductTexture` for each dataset
 - Supports optional pre-existing α inclusion
 - Generates ODF files and pole figure PNGs
 
 ### `alpha2BetaTexture.m`
 
-Performs α→β transformation in reverse:
-- Uses `alpha2betaVariants.m` with 6 variants
+Wrapper for α→β transformation in reverse:
+- Also delegates to `parentToProductTexture`
 - Follows similar output and folder structure
 
 ---
