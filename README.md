@@ -64,9 +64,11 @@ Self-contained examples that build an ideal single-orientation texture and
 invoke `parentToProductTexture` for several `sel` values. They write all
 generated ODFs and pole figures to `results/simulatedTextures/` and are a
 handy way to confirm the toolkit is working without external data files.
+
 Running either script is an easy check that the transformation functions and
 your MTEX setup are behaving correctly. They also validate that your MATLAB
 version is at least R2020a and that MTEX 5.4.0 is on the path.
+
 
 ---
 
