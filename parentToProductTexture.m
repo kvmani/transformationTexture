@@ -1,15 +1,36 @@
 function [odfProduct, report] = parentToProductTexture(inputTextureFile, parentPhase, productPhase, varargin)
-%parentToProductTexture Convert parent texture to product texture.
+% parentToProductTexture  Convert parent texture to its product texture.
+%
+%   [odfProduct, report] = parentToProductTexture(inputTextureFile, ...
+%       parentPhase, productPhase, Name,Value)
+%
+% Purpose
+%   Read a parent-phase texture from ``inputTextureFile`` and apply the
+%   Burgers orientation relationship to obtain the product texture. An
+%   optional pre-existing product texture can be mixed using the
+%   ``PreTransformed`` options.
+%
+% Input Arguments
+%   inputTextureFile - path to a Bunge formatted ``odf.txt`` file
+%   parentPhase      - either ``'alpha'`` or ``'beta'``
+%   productPhase     - either ``'alpha'`` or ``'beta'``
+%
+% Name-Value Pairs
+%   'Sel'            - orientation variant selection factor [0–1]
+%   'PreTransformed' - include a pre-existing product texture (logical)
+%   'PreTextureFile' - file path to the pre-existing texture
+%   'PreFraction'    - weight fraction of the pre-existing texture
+%   'OutputDir'      - folder to save ``*.odf`` and ``*.png`` files
+%   'DataSetName'    - string used for plot annotations
+%   'Data_Set_Name'  - subfolder name under ``results/``
+%   'Debug'          - true enables verbose debug information
+%
+% Output Arguments
+%   odfProduct - MTEX ``odf`` object of the product texture
+%   report     - structure summarising run parameters and output files
+%
 % Author: Dr K V Mani Krishna
 % Date  : 2025-05-01
-%
-% ... (same docstring) ...
-%
-% Name-Value Pairs:
-%   ... (existing parameters) ...
-%   'DataSetName'    - string used in plot annotation (optional)
-%   'Data_Set_Name'  - string used as output subfolder under 'results/' (optional)
-%   'Debug'          - true to print debug messages
 
 % ---- parse inputs -------------------------------------------------------
 p = inputParser;

@@ -1,10 +1,24 @@
-% simulateUniModalAlpha2BetaTexture.m
-
-% Demonstrate the use of parentToProductTexture for a unimodal α→β transformation.
-% This script builds ideal α and β unimodal textures, saves them into tmp/
-% as simulatedAlpha.odf and simulatedBeta.odf, then executes the reverse
-% transformation for a set of selection (sel) values. Pole figures are
-% stored under results/simulatedTextures/.
+% simulateUniModalAlpha2BetaTexture
+% --------------------------------------------------------------
+% Demonstration script for converting a synthetic unimodal \alpha
+% texture to its \beta product using ``parentToProductTexture``.
+%
+% Purpose
+%   Build ideal \alpha and \beta unimodal textures, save them to ``tmp/``
+%   and execute the reverse transformation for a range of selection
+%   factors ``Sel``. Resulting pole figures are saved under
+%   ``results/simulatedTextures``.
+%
+% Inputs
+%   None. All parameters such as ``Sel`` and pre-existing \beta fraction
+%   are specified within this script.
+%
+% Outputs
+%   Generated ODF files and pole figure PNGs are written to
+%   ``results/simulatedTextures``.
+%
+% Author: Dr K V Mani Krishna
+% Date  : 2025-07-15
 
 clear; clc; close all;
 
@@ -48,6 +62,7 @@ close(fig);
 fprintf('Saved parent α (0001) pole figure.\n');
 
 %% perform transformation for various sel values
+% Selection factors to test (η)
 selList = 0.1:0.2:1.0;
 for sel = selList
     fprintf('\n--- Running parentToProductTexture with sel = %.2f ---\n',sel);
