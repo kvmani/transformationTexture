@@ -1,8 +1,6 @@
 function gBeta = betaVariantsFromAlpha(gAlpha, V)
 % betaVariantsFromAlpha
 % ----------------------
-% Author: Dr K V Mani Krishna
-% Date  : 2025-05-01
 % Compute the 6 β-phase variant orientations from a given α-phase orientation.
 % Applies reverse Burgers OR operators (V) to the α orientation.
 %

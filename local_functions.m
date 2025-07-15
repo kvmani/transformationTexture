@@ -74,21 +74,3 @@ function plotAndSaveODF(odf, hA, outFilePath, sel, alphaFrac, dataSetName)
     close(fig);
 end
 
-function checkEnvironment()
-% checkEnvironment - Ensures MATLAB and MTEX versions meet requirements.
-    if verLessThan('matlab','9.8')
-        error('MATLAB 9.8 (R2020a) or newer is required.');
-    end
-    mtexVer = '';
-    if exist('mtex_version','file') == 2
-        mtexVer = char(mtex_version);
-    elseif exist('mtexVersion','file') == 2
-        mtexVer = char(mtexVersion);
-    end
-    if isempty(mtexVer)
-        error('Unable to determine MTEX version.');
-    end
-    if ~strcmp(strtrim(mtexVer),'5.4.0')
-        error('MTEX version 5.4.0 is required. Detected %s.', mtexVer);
-    end
-end

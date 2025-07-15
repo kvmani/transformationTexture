@@ -38,37 +38,18 @@ Author: **Dr K V Mani Krishna**
 
 ## Scripts
 
-### `parentToProductTexture.m`
-
-Generic function that converts a parent phase texture into its product phase
-using the Burgers orientation relationship. It handles both α→β and β→α cases,
-optional pre-transformed fractions and writes a JSON report. The legacy batch
-scripts call this function internally.
-
 ### `beta2AlphaTexture.m`
 
-Wrapper for batch β→α transformation:
-- Calls `parentToProductTexture` for each dataset
+Performs batch β→α transformation:
+- Uses `beta2alphaVariants.m` for orientation computation
 - Supports optional pre-existing α inclusion
 - Generates ODF files and pole figure PNGs
 
 ### `alpha2BetaTexture.m`
 
-Wrapper for α→β transformation in reverse:
-- Also delegates to `parentToProductTexture`
+Performs α→β transformation in reverse:
+- Uses `alpha2betaVariants.m` with 6 variants
 - Follows similar output and folder structure
-
-### `simulateUniModalBeta2AlphaTexture.m` & `simulateUniModalAlpha2BetaTexture.m`
-
-Self-contained examples that build an ideal single-orientation texture and
-invoke `parentToProductTexture` for several `sel` values. They write all
-generated ODFs and pole figures to `results/simulatedTextures/` and are a
-handy way to confirm the toolkit is working without external data files.
-
-Running either script is an easy check that the transformation functions and
-your MTEX setup are behaving correctly. They also validate that your MATLAB
-version is at least R2020a and that MTEX 5.4.0 is on the path.
-
 
 ---
 
@@ -119,7 +100,8 @@ For α→β transformations, replace `alpha` with `beta` in the metadata keys ac
 
 **Environment Requirements:**
 - MATLAB **R2020a**
-- MTEX Toolbox **v5.4.0**
+- MTEX Toolbox **v6.0.0**
+- Operating System: **Windows 10 Pro (Build 19041)**
 - Java 1.8.0_202 (HotSpot 64-bit)
 
 ### MTEX installation:

@@ -1,8 +1,6 @@
 function [gBeta, wBeta] = alpha2betaVariants(alphaEuler, wAlpha, sel, doPlot)
 % alpha2betaVariants
 % ------------------
-% Author: Dr K V Mani Krishna
-% Date  : 2025-05-01
 %  Convert each α-orientation to its first n = round(sel*6) β variants.
 %
 %  alphaEuler : N×3  Euler angles [φ1 Φ φ2] (deg) of α grains

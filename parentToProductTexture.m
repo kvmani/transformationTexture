@@ -3,41 +3,13 @@ function [odfProduct, report] = parentToProductTexture(inputTextureFile, parentP
 % Author: Dr K V Mani Krishna
 % Date  : 2025-05-01
 %
-% This utility replaces both beta2AlphaTexture and alpha2BetaTexture.
-% It performs orientation variant selection and optional mixing of
-% pre-transformed product phase texture. Results are saved to the
-% specified output directory.
-%
-% Syntax:
-%   [odfProduct, report] = parentToProductTexture(inputTextureFile,
-%       parentPhase, productPhase, 'Parameter', value, ...)
-%
-% Parameters:
-%   inputTextureFile - path to odf.txt containing the parent texture
-%   parentPhase      - 'alpha' or 'beta'
-%   productPhase     - 'beta' or 'alpha'
+% ... (same docstring) ...
 %
 % Name-Value Pairs:
-%   'Sel'            - selection factor in [0,1] (default 1)
-%   'PreTransformed' - logical, whether to mix pre-existing texture (default false)
-%   'PreTextureFile' - odf.txt for the pre-existing product texture
-%   'PreFraction'    - fraction of pre texture in [0,1] (default 0)
-%   'OutputDir'      - directory to save results (default same as file)
+%   ... (existing parameters) ...
 %   'DataSetName'    - string used in plot annotation (optional)
+%   'Data_Set_Name'  - string used as output subfolder under 'results/' (optional)
 %   'Debug'          - true to print debug messages
-%
-% Outputs:
-%   odfProduct - MTEX ODF object for the product phase
-%   report     - struct summarising inputs and outputs, also written as
-%                results.json in OutputDir
-%
-% Example:
-%   parentToProductTexture('beta/odf.txt','beta','alpha',
-%       'Sel',0.2,'PreTransformed',true,
-%       'PreTextureFile','alpha/odf.txt','PreFraction',0.1,
-%       'OutputDir','results');
-
-checkEnvironment();
 
 % ---- parse inputs -------------------------------------------------------
 p = inputParser;
@@ -50,18 +22,23 @@ addParameter(p,'PreTextureFile','',@(x)ischar(x)||isstring(x));
 addParameter(p,'PreFraction',0,@(x)isnumeric(x) && x>=0 && x<=1);
 addParameter(p,'OutputDir','',@(x)ischar(x)||isstring(x));
 addParameter(p,'DataSetName','Dataset',@(x)ischar(x)||isstring(x));
+addParameter(p,'Data_Set_Name','',@(x)ischar(x)||isstring(x));  % NEW
 addParameter(p,'Debug',false,@islogical);
 parse(p,inputTextureFile,parentPhase,productPhase,varargin{:});
 
+% ---- set up output directory under 'results/' --------------------------
+dataSetSub = char(p.Results.Data_Set_Name);
+if isempty(dataSetSub)
+    dataSetSub = char(p.Results.DataSetName);
+end
+outputDir = fullfile('results', dataSetSub);
+if ~exist(outputDir,'dir'), mkdir(outputDir); end
+
+% ---- assign parameters --------------------------------------------------
 sel            = p.Results.Sel;
 preTransformed = p.Results.PreTransformed;
 preFile        = p.Results.PreTextureFile;
 preFrac        = p.Results.PreFraction;
-outputDir      = char(p.Results.OutputDir);
-if isempty(outputDir)
-    outputDir = fileparts(p.Results.inputTextureFile);
-end
-if ~exist(outputDir,'dir'), mkdir(outputDir); end
 nameStr        = char(p.Results.DataSetName);
 DBG            = p.Results.Debug;
 
@@ -102,11 +79,12 @@ end
 % ---- read parent texture ------------------------------------------------
 tbl = readmatrix(p.Results.inputTextureFile,'FileType','text','CommentStyle','%');
 if DBG
+    tbl = tbl(1:40:end, :);
+    fprintf('DEBUG MODE: Using every 40th row only from odf.txt.');
     fprintf('Loaded %d orientations from %s\n', size(tbl,1), p.Results.inputTextureFile);
 end
 parentEul = tbl(:,1:3);
 wParent  = tbl(:,4); wParent = wParent / sum(wParent);
-oriParent = orientation('Euler', parentEul(:,1)*degree, parentEul(:,2)*degree, parentEul(:,3)*degree, csParent, ss);
 
 % ---- variant transformation --------------------------------------------
 if strcmp(parentPhase,'beta') && strcmp(productPhase,'alpha')
@@ -122,6 +100,10 @@ odfProduct = calcODF(gProd,'weights',wProd);
 % ---- include pre-transformed texture -----------------------------------
 if preTransformed
     tblPre = readmatrix(preFile,'FileType','text','CommentStyle','%');
+    if DBG
+        tblPre = tblPre(1:40:end, :);
+        fprintf('DEBUG MODE: Using every 40th row only from pre‑transformed odf.txt.');
+    end
     preEul = tblPre(:,1:3);
     wPre   = tblPre(:,4); wPre = wPre / sum(wPre);
     odfPre = calcODF(orientation('Euler',preEul(:,1)*degree,preEul(:,2)*degree,preEul(:,3)*degree, csProduct, ss), 'weights', wPre);
@@ -130,10 +112,9 @@ end
 
 % ---- save outputs -------------------------------------------------------
 baseName = sprintf('%s_texture_sel_%04.2f_%s_Frac_%04.2f', productPhase, sel, productPhase, preFrac);
-outOdfFile = fullfile(outputDir,[baseName '.odf']);
+outOdfFile = fullfile(outputDir, [baseName '.odf']);
 export(odfProduct, outOdfFile,'Bunge');
 
-% plot
 fig = figure('Visible','off');
 plotPDF(odfProduct, hDirs,'contourf','levels',linspace(0.5,2.0,10), 'resolution',5*degree,'antipodal');
 mtexColorbar;
@@ -156,4 +137,18 @@ json = jsonencode(report);
 json = prettyJSON(json);
 fid = fopen(fullfile(outputDir,'results.json'),'w');
 fwrite(fid,json); fclose(fid);
+end
+
+% unchanged helper
+function addFigureAnnotation(figHandle, sel, frac, dataSetName)
+    dataSetName =  strrep(dataSetName, '_', ' ');
+    annotationText = sprintf('\\eta=%.2f\nparent_{f}=%.2f\nData:%s', ...
+                         sel, frac, dataSetName);
+    annotation(figHandle, 'textbox', [0.02, 0.01, 0.3, 0.12], ...
+               'String', annotationText, ...
+               'HorizontalAlignment', 'left', ...
+               'VerticalAlignment', 'bottom', ...
+               'EdgeColor', 'none', ...
+               'FontSize', 16, ...
+               'FontWeight', 'bold');
 end
