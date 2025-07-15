@@ -130,6 +130,49 @@ alpha2BetaTexture
 
 to simulate transformations and generate results.
 
+## How to Run
+
+### Install MTEX 5.4.0
+1. Download MTEX version 5.4.0 from the [official release page](https://github.com/mtex-toolbox/mtex/releases/tag/5.4.0).
+2. Extract the archive to a folder, e.g. `C:\mtex-5.4.0`.
+3. Start MATLAB R2020a and execute:
+
+   ```matlab
+   addpath('C:\mtex-5.4.0');
+   startup_mtex;
+   mtex_version
+   ```
+   Ensure that `mtex_version` reports **5.4.0**.
+
+### Configure MATLAB with this Repository
+1. Clone or download this repository to a local folder.
+2. In MATLAB add the folder to the path:
+
+   ```matlab
+   addpath(genpath('path_to_transformationTexture'));
+   ```
+3. Run `checkEnvironment` to verify MATLAB and MTEX versions.
+
+### Running the Interactive Demo
+Open and run `parentToProductTexture.mlx` in the MATLAB editor. Edit the
+file paths in the first code cell to point to your own `odf.txt` files and
+press **Run All**. Output pole figures and ODF files will appear under the
+`results` folder.
+
+### Interpreting Results
+The live script prints a `report` structure summarising the run. Pole figure
+PNGs are saved alongside the ODF file indicated in the report.
+
+#### Troubleshooting
+- **Undefined function errors**: ensure MTEX is on the MATLAB path and that
+  `startup_mtex` has been executed.
+- **Path conflicts**: run `restoredefaultpath` before adding MTEX and this
+  repository to avoid shadowed functions.
+- **Version mismatch**: `checkEnvironment` will error if MATLAB is older than
+  R2020a or if MTEX is not exactly 5.4.0.
+- **Missing toolbox**: the scripts require the *Statistics and Machine
+  Learning Toolbox*. Install it using the MATLAB Add-On manager if needed.
+
 ---
 
 ## Output
