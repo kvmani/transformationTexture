@@ -35,6 +35,13 @@ Author: **Dr K V Mani Krishna**
 5. Optionally include pre-existing β texture
 
 ---
+### Running the Interactive Demo
+This is the recommended method of running the α→β or β→α transformation texture simualtions and is meant to be user friendly.
+Open and run `parentToProductTexture.mlx` in the MATLAB editor 
+(after installing mtex tool box (see instruction at the end for version of mtex etc.). 
+Edit the file paths in the first code cell to point to your own `odf.txt` files and
+press **Run All**. Output pole figures and ODF files will appear under the
+`results` folder.
 
 ## Scripts
 
@@ -70,6 +77,8 @@ Performs α→β transformation in reverse:
 ---
 
 ## Input Format: JSON Metadata
+
+this is useful for automating all calcualtions by specifying series of data folders ad their other meta data inputs needed. Ideal for advanced users. Input need to be prepared in the form of a .json file as below.
 
 ### Example
 ```json
@@ -153,11 +162,7 @@ to simulate transformations and generate results.
    ```
 3. Run `checkEnvironment` to verify MATLAB and MTEX versions.
 
-### Running the Interactive Demo
-Open and run `parentToProductTexture.mlx` in the MATLAB editor. Edit the
-file paths in the first code cell to point to your own `odf.txt` files and
-press **Run All**. Output pole figures and ODF files will appear under the
-`results` folder.
+
 
 ### Interpreting Results
 The live script prints a `report` structure summarising the run. Pole figure
