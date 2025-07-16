@@ -17,6 +17,7 @@ Author: **Dr K V Mani Krishna**
 ---
 
 ## Algorithms & Workflow
+The code implments Burger's OR : **[111]β ‖ [0001]α, (110)β ‖ (11̅20)α**
 
 ### 🔁 Beta to Alpha (β → α)
 
@@ -35,6 +36,11 @@ Author: **Dr K V Mani Krishna**
 5. Optionally include pre-existing β texture
 
 ---
+### Example output
+Below is the ewxample output for different cases of selection parameter **η** (η=0.1, corresponding to high variant selction i.e. only 1 variant is allowed to form, and η=0.9 corresponding to  all variants being allowed to form.). These correspond to uni-modal (ideal) odfs with [0,0,0] orientations.
+#### Transformation textures predicted by code for ideal cases:
+![Transformation textures predcted by code for (α → β) and (β → α) transformations ](./simulatedTexturesPoleFigures.png)
+
 ### Running the Interactive Demo
 This is the recommended method of running the α→β or β→α transformation texture simualtions and is meant to be user friendly.
 Open and run `parentToProductTexture.mlx` in the MATLAB editor 

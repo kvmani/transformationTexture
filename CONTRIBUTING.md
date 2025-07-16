@@ -11,6 +11,7 @@ All contributors **must** follow these guidelines to ensure correctness, maintai
 ## 🔍 Project Philosophy
 
 This project simulates crystallographic **texture evolution** under the **Burgers orientation relationship**, particularly during:
+- The **Burgers OR** is given by **[111]β ‖ [0001]α, (110)β ‖ (11̅20)α**
 - **β → α transformation** (e.g., cooling from high-temperature bcc β-phase)
 - **α → β transformation** (e.g., reheating or reverse transformation)
 
